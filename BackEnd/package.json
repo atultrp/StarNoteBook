@@ -1,15 +1,18 @@
 {
-  "name": "starnotebook-backend",
+  "name": "starnotebook",
   "version": "1.0.0",
-  "description": "Star Notebook - Your notebook on the cloud.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Atul Tripathi",
   "license": "ISC",
+  "description": "",
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^6.0.12"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
