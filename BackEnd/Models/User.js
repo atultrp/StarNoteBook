@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
+// Creating scheme for the user to login/regiter in the StarNotebook
 const userSchema = new Schema({
     name: {
         type: String,
@@ -26,6 +27,7 @@ const userSchema = new Schema({
     }
 });
 
+// Creating model of the user to use for authentication
 const User = mongoose.model('user',userSchema);
 User.createIndexes();
 module.exports = User;

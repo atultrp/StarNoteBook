@@ -1,17 +1,19 @@
 {
-  "name": "starnotebook",
+  "name": "backendpart",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "StarNotebook - Write your thoughts, notes and whatever you want to write.",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Atul Tripathi",
   "license": "ISC",
-  "description": "",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "express-validator": "^6.13.0",
-    "mongoose": "^6.0.12"
-  },
-  "devDependencies": {}
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.13"
+  }
 }
