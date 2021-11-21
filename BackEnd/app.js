@@ -15,5 +15,5 @@ app.use('/api/auth',require('./Routes/auth'));
 app.use('/api/notes',require('./Routes/notes'));
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`App listening at http://localhost:${port}`)
 })
