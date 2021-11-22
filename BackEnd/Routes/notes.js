@@ -71,9 +71,9 @@ router.put('/updatenotes/:id', fetchuser, async (req, res) => {
 
       // Find the note to be updated and update it.
       let notes = await Notes.findById(req.params.id);
-
       if (!notes) { return res.status(404).send("Not Found!") }
 
+      // Allow Updation only if user own this notes
       if (notes.user.toString() !== req.user.id) {
          return res.status(401).send("Not Allowed!");
       }
@@ -92,28 +92,23 @@ router.put('/updatenotes/:id', fetchuser, async (req, res) => {
 
 // ROUTE 4 : Delete Notes : POST "/api/notes/deletenotes" Login required
 
-router.put('/deletenotes/:id', fetchuser, async (req, res) => {
+router.delete('/deletenotes/:id', fetchuser, async (req, res) => {
 
    const { title, description, tag } = req.body;
 
    try {
-      // Creating a newNotes object
-      const newNotes = {};
-      if (title) { newNotes.title = title };
-      if (description) { newNotes.description = description };
-      if (tag) { newNotes.tag = tag };
+      
+      // Find the note to be deleted and delete it.
+      let deleteNotes = await Notes.findById(req.params.id);
 
-      // Find the note to be updated and update it.
-      let notes = await Notes.findById(req.params.id);
-
-      if (!notes) { return res.status(404).send("Not Found!") }
-
-      if (notes.user.toString() !== req.user.id) {
+      if (!deleteNotes) { return res.status(404).send("Not Found!") }
+      // Allow deletion only if user own this notes
+      if (deleteNotes.user.toString() !== req.user.id) {
          return res.status(401).send("Not Allowed!");
       }
 
-      notes = await Notes.findByIdAndUpdate(req.params.id, { $set: newNotes }, { new: true });
-      res.json(notes);
+      deleteNotes = await Notes.findByIdAndDelete(req.params.id);
+      res.json({"Success": "Note has been deleted", "notes": deleteNotes});
 
    } catch (error) {
       console.error(error.message);
