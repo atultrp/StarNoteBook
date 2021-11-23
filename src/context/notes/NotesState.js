@@ -1,8 +1,14 @@
-import React from 'react';
-import notesContext from './notesContext';
+import NotesContext from './notesContext';
 
-const notesState = ()=> {
+const NotesState = (props)=> {
+    const state = {
+    "name": "Atul Tripathi",
+    "class": "10C"
+    }
 
+    return (<NotesContext.Provider value={state}>
+        {props.children};
+    </NotesContext.Provider>)
 }
 
-export default notesState;
+export default NotesState;
