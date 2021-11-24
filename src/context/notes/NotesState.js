@@ -1,13 +1,9 @@
-import NotesContext from './notesContext';
+import NotesContext, {useState} from './notesContext';
 
 const NotesState = (props)=> {
-    const state = {
-    "name": "Atul Tripathi",
-    "class": "10C"
-    }
 
-    return (<NotesContext.Provider value={state}>
-        {props.children};
+    return (<NotesContext.Provider value={{}}>
+        {props.children}
     </NotesContext.Provider>)
 }
 
