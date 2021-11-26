@@ -8,12 +8,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "Icons/logo192.png",
+      "src": "Icons/android-chrome-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "Icons/logo512.png",
+      "src": "Icons/apple-touch-icon.png",
       "type": "image/png",
       "sizes": "512x512"
     }
