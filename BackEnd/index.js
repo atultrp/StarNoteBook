@@ -5,7 +5,7 @@ const express = require('express')
 connectToMongo();
 
 const app = express();
-const port = 5000;
+const port = 4000;
 
 // It parses incoming requests with JSON payloads and is based on body-parser
 app.use(express.json());
