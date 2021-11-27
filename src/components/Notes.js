@@ -10,7 +10,12 @@ const Notes = () => {
 
     useEffect(() => {
         getAllNote();
+        // eslint-disable-next-line
     }, [])
+
+    const updateNote = (note)=>{
+
+    }
 
     return (
         <>
@@ -18,7 +23,7 @@ const Notes = () => {
             <div className="row my-3">
                 <h2>Your notes</h2>
                 {notes.map((note) => {
-                    return <NotesItem key={note._id} note={note} />
+                    return <NotesItem key={note._id} updateNote={updateNote} note={note} />
                 })}
             </div>
         </>

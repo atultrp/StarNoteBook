@@ -20,7 +20,7 @@ const NotesState = (props) => {
                 'Content-Type': 'application/json',
                 'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5YjNiNDU2MzY4ZjYzZTY5NDU2ODU1In0sImlhdCI6MTYzNzU2MzI3N30.OvHnBKL255UL1d7CRS3CRFm1t0XL5MFYZF-6bv0SlM8'
             },
-            body: JSON.stringify({title, description, tag})
+            body: JSON.stringify({ title, description, tag })
         });
         const json = response.json();
 
@@ -55,7 +55,20 @@ const NotesState = (props) => {
     }
 
     // Deleting a note
-    const deleteNote = (id) => {
+    const deleteNote = async (id) => {
+        // API Call
+        const url = `${host}/api/notes/deletenotes/${id}`;
+        const response = await fetch(url, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5YjNiNDU2MzY4ZjYzZTY5NDU2ODU1In0sImlhdCI6MTYzNzU2MzI3N30.OvHnBKL255UL1d7CRS3CRFm1t0XL5MFYZF-6bv0SlM8'
+            }
+        });
+        const json = response.json();
+        console.log(json);
+
+        // Delete Logic
         const newNotes = notes.filter((note) => { return note._id !== id })
         setNotes(newNotes);
     }
@@ -70,7 +83,7 @@ const NotesState = (props) => {
                 'Content-Type': 'application/json',
                 'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5YjNiNDU2MzY4ZjYzZTY5NDU2ODU1In0sImlhdCI6MTYzNzU2MzI3N30.OvHnBKL255UL1d7CRS3CRFm1t0XL5MFYZF-6bv0SlM8'
             },
-            body: JSON.stringify({title, description, tag})
+            body: JSON.stringify({ title, description, tag })
         });
         const json = response.json();
 
