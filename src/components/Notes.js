@@ -51,18 +51,18 @@ const Notes = () => {
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
-                                <form className="my-3">
-                                    <div className="mb-3">
+                                <form className="my-3 row g-3">
+                                    <div className="mb-3 col-md-6">
                                         <label htmlFor="etitle" className="form-label">Title</label>
                                         <input type="text" className="form-control" id="etitle" name="etitle" aria-describedby="emailHelp" value={note.etitle} minLength={5} required onChange={onChange} />
                                     </div>
-                                    <div className="mb-3">
+                                    <div className="mb-3 col-md-6">
                                         <label htmlFor="etag" className="form-label">Tag</label>
                                         <input type="text" className="form-control" id="etag" name="etag" value={note.etag} onChange={onChange} />
                                     </div>
-                                    <div className="mb-3">
+                                    <div className="mb-3 col-12">
                                         <label htmlFor="edescription" className="form-label">Description</label>
-                                        <input type="text" className="form-control" id="edescription" name="edescription" value={note.edescription} minLength={5} required onChange={onChange} />
+                                        <textarea type="text" className="form-control" id="edescription" name="edescription" rows="3" value={note.edescription} minLength={5} required onChange={onChange} />
                                     </div>
                                 </form>
                             </div>
