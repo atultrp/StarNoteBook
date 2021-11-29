@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import notesContext from '../context/notes/notesContext';
 
-const Addnote = ()=> {
+const Addnote = (props)=> {
     const context = useContext(notesContext);
     const { addNote } = context;
 
@@ -11,6 +11,7 @@ const Addnote = ()=> {
         e.preventDefault();
         addNote(note.title, note.description, note.tag);
         setNote({title:"",description:"",tag:""});
+        props.showAlert("Note Added Successfully","success");
     }
 
     const onChange = (e) => {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import profilePicture from './profilePicture.png';
 
-const Login = () => {
+const Login = (props) => {
 
     const [credentials, setCredential] = useState({ email: "", password: "" });
     let navigate = useNavigate();
@@ -17,12 +17,14 @@ const Login = () => {
         });
         const json = await response.json();
         console.log(json);
+        // Check the login success and redirect
         if (json.success) {
             localStorage.setItem("token", json.authToken);
+            props.showAlert("Logged in Successfully","success");
             navigate("/");
         }
         else {
-            alert("Invalid creds!!")
+            props.showAlert("Invalid Credential","danger");
         }
     }
 
@@ -32,6 +34,7 @@ const Login = () => {
 
     return (
         <div className="container">
+            <h2 className="my-4">Login</h2>
             <form onSubmit={handleSubmit} className="g-3">
                 <div className="mb-3 col-md-4">
                     <label htmlhtmlFor="email" className="form-label">Email address</label>
