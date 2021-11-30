@@ -11,6 +11,10 @@ i{
   padding: 0;
 }
 
+.social-icons:hover{
+  color: rgb(22, 22, 22);
+}
+
 .form-signin {
     display: flex;
     align-items: center;
