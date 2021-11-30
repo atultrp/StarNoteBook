@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 // Components and Routes
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import Home from './components/Home';
 import About from './components/About';
 import NotesState from './context/notes/NotesState';
@@ -28,20 +29,23 @@ function App() {
 
   return (
     <>
-      <NotesState>
-        <Router>
-          <Navbar />
-          <Alert alert={alert}/>
-          <div className="container">
-            <Routes>
-              <Route exact path="/" element={<Home showAlert={showAlert}/>} />
-              <Route exact path="/about" element={<About />} />
-              <Route exact path="/login" element={<Login showAlert={showAlert}/>} />
-              <Route exact path="/signup" element={<Signup showAlert={showAlert}/>} />
-            </Routes>
-          </div>
-        </Router>
-      </NotesState>
+      <div className="body">
+        <NotesState>
+          <Router>
+            <Navbar />
+            <Alert alert={alert} />
+            <div className="container">
+              <Routes>
+                <Route exact path="/" element={<Home showAlert={showAlert} />} />
+                <Route exact path="/about" element={<About />} />
+                <Route exact path="/login" element={<Login showAlert={showAlert} />} />
+                <Route exact path="/signup" element={<Signup showAlert={showAlert} />} />
+              </Routes>
+            </div>
+            <Footer />
+          </Router>
+        </NotesState>
+      </div>
     </>
   )
 }

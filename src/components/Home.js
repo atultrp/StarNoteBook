@@ -22,7 +22,7 @@ const Home = (props) => {
                         <div class="card my-4 col-md-3 mx-auto " style={{width: "18rem"}}>
                             <img src={Background4} class="card-img-top" alt="..."/>
                             <div className="card-body">
-                            <h5 className="card-title"></h5>
+                            <h5 className="card-title">Register/Login</h5>
                             <p className="card-text lead"><small> The most beautiful note taking app across devices. If you are new in this app then please register your id and enjoy writing notes. And if are the existing user, welcome back!</small></p>
                             </div>
                         </div>

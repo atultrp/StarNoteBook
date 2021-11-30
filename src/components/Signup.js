@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import profilePicture from './Assets/profilePicture.png';
 
 const Signup = (props) => {
 
@@ -7,7 +8,14 @@ const Signup = (props) => {
     let navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const { name, username, email, password } = credentials;
+        const { name, username, email, password, cpassword } = credentials;
+
+        if(password !== cpassword){
+            props.showAlert("Please match your password and confirm password","danger");
+            navigate("/signup");
+            return;
+        }
+
         const response = await fetch("http://localhost:4000/api/auth/createuser", {
             method: 'POST',
             headers: {
@@ -17,6 +25,7 @@ const Signup = (props) => {
         });
         const json = await response.json();
         console.log(json);
+
         // Check the signup success and redirect
         if (json.success) {
             localStorage.setItem("token", json.authToken);
@@ -32,10 +41,10 @@ const Signup = (props) => {
         setCredential({ ...credentials, [e.target.name]: e.target.value });
     }
 
-
     return (
         <div className="container">
-            <h2 className="my-4">SignUp</h2>
+            <h2 className="mt-4">Register Account</h2>
+            <p className="mb-4 lead">Please SignUp to use Star Notebook</p>
             <form className="row g-3" onSubmit={handleSubmit}>
                 <div className="col-md-4">
                     <label htmlFor="name" className="form-label">Full Name</label>
@@ -60,24 +69,24 @@ const Signup = (props) => {
                 </div>
                 <div className="col-md-4">
                     <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" className="form-control is-invalid" id="password" name="password" onChange={onChange} value={credentials.password} minLength={5}aria-describedby="validationServer03Feedback" required />
+                    <input type="password" className="form-control is-invalid" id="password" name="password" onChange={onChange} value={credentials.password} minLength={5} aria-describedby="validationServer03Feedback" required />
                     <div id="validationServer03Feedback" className="invalid-feedback">
                         Must be 8-20 characters long.
                     </div>
                 </div>
                 <div className="col-md-4">
                     <label htmlFor="cpassword" className="form-label">Confirm Password</label>
-                    <input type="password" className="form-control is-invalid" id="cpassword" name="cpassword" onChange={onChange} value={credentials.cpassword} minLength={5}aria-describedby="validationServer03Feedback" required />
+                    <input type="password" className="form-control is-invalid" id="cpassword" name="cpassword" onChange={onChange} value={credentials.cpassword} minLength={5} aria-describedby="validationServer03Feedback" required />
 
                 </div>
-                {/* <div className="col-12">
+                <div className="col-12">
                     <div className="form-check">
                         <input className="form-check-input " type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required />
                         <label className="form-check-label" htmlFor="invalidCheck3">
                             Agree to terms and conditions
                         </label>
                     </div>
-                </div> */}
+                </div>
                 <div className="col-12">
                     <button className="btn btn-primary" type="submit">Sign Up</button>
                 </div>
