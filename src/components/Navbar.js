@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import notesContext from '../context/notes/notesContext';
 
 const Navbar = () => {
     let location = useLocation();
@@ -9,6 +10,11 @@ const Navbar = () => {
     const handleLogOut = () => {
         localStorage.removeItem('token');
         navigate("/login");
+    }
+
+    const handlePro = () => {
+        localStorage.removeItem('token');
+        navigate("/");
     }
 
     return (
@@ -31,7 +37,12 @@ const Navbar = () => {
                         {!localStorage.getItem('token') ? <form className="d-flex">
                             <Link className="btn btn-outline-light mx-2" to="/login" role="button">Login</Link>
                             <Link className="btn btn-light mx-2" to="/signup" role="button">Signup</Link>
-                        </form> : <button className="btn btn-light mx-2" onClick={handleLogOut}>Logout</button>}
+                        </form> : 
+                        <div>
+                            <button className="btn btn-outline-light mx-2 userhead" onClick={handlePro}>atultrp</button>
+                            <button className="btn btn-light mx-2" onClick={handleLogOut}>Logout</button>
+                        </div>}
+                        
                     </div>
                 </div>
             </nav>
