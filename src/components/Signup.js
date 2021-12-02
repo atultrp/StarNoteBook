@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import profilePicture from './Assets/profilePicture.png';
 
 const Signup = (props) => {
 

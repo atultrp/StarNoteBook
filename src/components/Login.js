@@ -33,25 +33,6 @@ const Login = (props) => {
     }
 
     return (
-        // <div className="container">
-        //     <h2 className="my-4">Login</h2>
-        //     <form onSubmit={handleSubmit} className="g-3">
-        //         <div className="mb-3 col-md-4">
-        //             <label htmlhtmlFor="email" className="form-label">Email address</label>
-        //             <input type="email" className="form-control" value={credentials.email} name="email" id="email" aria-describedby="emailHelp" onChange={onChange} />
-        //             <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-        //         </div>
-        //         <div className="mb-3 col-md-4">
-        //             <label htmlhtmlFor="password" className="form-label">Password</label>
-        //             <input type="password" className="form-control" value={credentials.password} name="password" id="password" onChange={onChange} />
-        //         </div>
-        //         <button type="submit" className="btn btn-primary">Login</button>
-        //     </form>
-        // </div>
-
-
-        // Another login page
-
         <div class="text-center">
             <main class="form-signin mt-5">
                 <form onSubmit={handleSubmit}>

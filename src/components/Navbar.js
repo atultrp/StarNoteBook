@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
-import notesContext from '../context/notes/notesContext';
 
 const Navbar = () => {
     let location = useLocation();
@@ -12,10 +11,21 @@ const Navbar = () => {
         navigate("/login");
     }
 
-    const handlePro = () => {
-        localStorage.removeItem('token');
-        navigate("/");
-    }
+
+    // const [user, setUser] = useState([userInitial])
+
+    // const onChange = async (e) => {
+    //     e.preventDefault();
+    //     const response = await fetch("http://localhost:4000/api/auth/getuser", {
+    //         method: 'GET',
+    //         headers: {
+    //             'auth-token': localStorage.getItem('token')
+    //         }
+    //     });
+    //     const json = await response.json();
+    //     console.log(json);
+    //     setUser(json);
+    // }
 
     return (
         <div>
@@ -37,12 +47,12 @@ const Navbar = () => {
                         {!localStorage.getItem('token') ? <form className="d-flex">
                             <Link className="btn btn-outline-light mx-2" to="/login" role="button">Login</Link>
                             <Link className="btn btn-light mx-2" to="/signup" role="button">Signup</Link>
-                        </form> : 
-                        <div>
-                            <button className="btn btn-outline-light mx-2 userhead" onClick={handlePro}>atultrp</button>
-                            <button className="btn btn-light mx-2" onClick={handleLogOut}>Logout</button>
-                        </div>}
-                        
+                        </form> :
+                            <div>
+                                {/* <button className="btn btn-outline-light mx-2 userhead" onChange={onChange} >atultrp</button> */}
+                                <button className="btn btn-light mx-2" onClick={handleLogOut}>Logout</button>
+                            </div>}
+
                     </div>
                 </div>
             </nav>

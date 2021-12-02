@@ -1,7 +1,7 @@
 import React from 'react'
 import Notes from './Notes'
 import Background1 from './Assets/Background1.svg'
-import Background2 from './Assets/Background2.svg'
+// import Background2 from './Assets/Background2.svg'
 import Background3 from './Assets/Background3.svg'
 import Background4 from './Assets/Background4.svg'
 // import Background5 from './Assets/Background5.svg'
