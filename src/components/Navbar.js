@@ -52,7 +52,6 @@ const Navbar = () => {
                                 {/* <button className="btn btn-outline-light mx-2 userhead" onChange={onChange} >atultrp</button> */}
                                 <button className="btn btn-light mx-2" onClick={handleLogOut}>Logout</button>
                             </div>}
-
                     </div>
                 </div>
             </nav>
