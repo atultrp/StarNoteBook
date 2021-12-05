@@ -12,7 +12,9 @@ const mongoose = require("mongoose");
 
 // Connection from mongodb atlas
 
-const mongoURI = "mongodb+srv://atultrp:atultrp@cluster0.zgqyz.mongodb.net/StarNotebookDatabase?retryWrites=true&w=majority";
+// const mongoURI = "mongodb+srv://atultrp:atultrp@cluster0.zgqyz.mongodb.net/StarNotebookDatabase?retryWrites=true&w=majority";
+
+const mongoURI = require("./config/keys");
 
 const connectToMongo = async () => {
     await mongoose.connect(mongoURI, {

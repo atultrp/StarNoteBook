@@ -17,6 +17,18 @@ app.use(express.json());
 app.use('/api/auth',require('./Routes/auth'));
 app.use('/api/notes',require('./Routes/notes'));
 
+// For Deployment
+if(process.env.NODE_ENV === 'production'){
+  const path = require('path')
+
+  app.get('/',(req,res) => {
+    app.use(express.static(path.resolve(__dirname,"..","build")))
+    res.sendFile(path.resolve(__dirname,"..","build","index.html"))
+
+  })
+}
+
+
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`)
 })

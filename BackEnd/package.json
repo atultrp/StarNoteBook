@@ -4,7 +4,7 @@
   "description": "StarNotebook - Write your thoughts, notes and whatever you want to write.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "Atul Tripathi",
   "license": "ISC",
