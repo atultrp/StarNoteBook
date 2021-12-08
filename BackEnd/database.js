@@ -14,7 +14,8 @@ const mongoose = require("mongoose");
 
 // const mongoURI = "mongodb+srv://atultrp:atultrp@cluster0.zgqyz.mongodb.net/StarNotebookDatabase?retryWrites=true&w=majority";
 
-const mongoURI = require("./config/keys");
+const key = require("./config/keys");
+const mongoURI = key.MONGO_URI;
 
 const connectToMongo = async () => {
     await mongoose.connect(mongoURI, {
