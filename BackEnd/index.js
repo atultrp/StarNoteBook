@@ -15,16 +15,30 @@ app.use(cors());
 app.use(express.json());
 
 // Available Routes
-app.use('/api/auth',require('./Routes/auth'));
-app.use('/api/notes',require('./Routes/notes'));
+app.use('/api/auth', require('./Routes/auth'));
+app.use('/api/notes', require('./Routes/notes'));
 
 
 // For Deployment
+// if(process.env.NODE_ENV === 'production'){
+//   const path = require('path')
+
+//   app.get('/',(req,res) => {
+//     app.use(express.static(path.resolve(__dirname,"..","build")))
+//     res.sendFile(path.resolve(__dirname,"..","build","index.html"))
+
+//   })
+// }
+
+
 const path = require('path');
-app.use(express.static(path.join(__dirname,'..', 'build')));
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..','build', 'index.html'));
-});
+// static files (build of your frontend)
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '..', 'build')));
+  app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+  });
+}
 
 
 app.listen(port, () => {
