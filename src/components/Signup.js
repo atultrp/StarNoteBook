@@ -70,7 +70,7 @@ const Signup = (props) => {
                     <label htmlFor="password" className="form-label">Password</label>
                     <input type="password" className="form-control is-invalid" id="password" name="password" onChange={onChange} value={credentials.password} minLength={5} aria-describedby="validationServer03Feedback" required />
                     <div id="validationServer03Feedback" className="invalid-feedback">
-                        Must be 5-20 characters long.
+                        Must be 8-20 characters long.
                     </div>
                 </div>
                 <div className="col-md-4">
