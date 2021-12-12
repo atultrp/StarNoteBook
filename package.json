@@ -1,4 +1,5 @@
 {
+  "homepage" : "https://star-notebook.vercel.app",
   "name": "starnotebook",
   "version": "0.1.0",
   "private": true,
