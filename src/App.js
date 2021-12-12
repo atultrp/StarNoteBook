@@ -31,7 +31,7 @@ function App() {
     <>
       <div className="body">
         <NotesState>
-          <Router>
+          <Router basename='/'>
             <Navbar />
             <Alert alert={alert} />
             <div className="container">
