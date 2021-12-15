@@ -12,8 +12,6 @@ const mongoose = require("mongoose");
 
 // Connection from mongodb atlas
 
-// const mongoURI = "mongodb+srv://atultrp:atultrp@cluster0.zgqyz.mongodb.net/StarNotebookDatabase?retryWrites=true&w=majority";
-
 const key = require("./config/keys");
 const mongoURI = key.MONGO_URI;
 
