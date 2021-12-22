@@ -1,6 +1,6 @@
 # 🗒️ Star Notebook - Your notebook on the cloud.
-## ✨️ Preview : 
-### https://star-notebook.vercel.app/
+## ✨️ Demo : 
+
 ![Screenshot from 2021-12-08 09-00-28](https://user-images.githubusercontent.com/69186169/145143600-6bdfd1f0-2b40-4178-a8ca-4ada77e24b5a.png)
 
 
